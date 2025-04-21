@@ -74,11 +74,11 @@ if not high_vram:
 transformer.high_quality_fp32_output_for_inference = False
 print('transformer.high_quality_fp32_output_for_inference = True')
 
-transformer.to(dtype=torch.bfloat16)
-vae.to(dtype=torch.float16)
-image_encoder.to(dtype=torch.float16)
-text_encoder.to(dtype=torch.float16)
-text_encoder_2.to(dtype=torch.float16)
+transformer.half().to(gpu)
+vae.half().to(gpu)
+image_encoder.half().to(gpu)
+text_encoder.half().to(gpu)
+text_encoder_2.half().to(gpu)
 
 vae.requires_grad_(False)
 text_encoder.requires_grad_(False)
